@@ -10,7 +10,6 @@
   <ItemGroup>
     <Folder Include="data\" />
     <Folder Include="docs\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>
