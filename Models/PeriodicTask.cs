@@ -1,5 +1,4 @@
-﻿
-namespace RTScheduler.Models
+﻿namespace RTScheduler.Models
 {
     /// <summary>
     /// Модель периодической задачи системы реального времени.

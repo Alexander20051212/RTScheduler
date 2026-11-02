@@ -7,6 +7,25 @@ using RTScheduler.Services;
 
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
+string reportsDirectory = Path.Combine(
+    Directory.GetCurrentDirectory(),
+    "docs");
+
+Directory.CreateDirectory(reportsDirectory);
+
+string reportFile = Path.Combine(
+    reportsDirectory,
+    $"analysis_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.txt");
+
+var reportWriter = new StreamWriter(
+    reportFile,
+    false,
+    System.Text.Encoding.UTF8);
+
+var originalConsole = Console.Out;
+
+Console.SetOut(new TeeTextWriter(originalConsole, reportWriter));
+
 string filePath = Path.Combine(AppContext.BaseDirectory, "data", "tasks.json");
 
 if (!File.Exists(filePath))
@@ -132,3 +151,9 @@ foreach (var segment in edfGantt)
 }
 
 Console.WriteLine("\nАнализ завершён.");
+
+Console.WriteLine($"Отчёт сохранён: {reportFile}");
+
+Console.Out.Flush();
+Console.SetOut(originalConsole);
+reportWriter.Dispose();
