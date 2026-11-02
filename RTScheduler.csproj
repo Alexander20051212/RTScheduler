@@ -8,7 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="data\" />
+    <None Remove="data\tasks.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="data\tasks.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="docs\" />
   </ItemGroup>
 
