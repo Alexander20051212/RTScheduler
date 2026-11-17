@@ -1,24 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net10.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="data\tasks.json" />
-  </ItemGroup>
+	<ItemGroup>
+	  <None Remove="data\tasks.json" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Content Include="data\tasks.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+	<ItemGroup>
+	  <Content Include="data\tasks.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="docs\" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="OxyPlot.WindowsForms" Version="2.2.0" />
+	</ItemGroup>
 
 </Project>
